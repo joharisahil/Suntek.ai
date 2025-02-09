@@ -7,11 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Database connection
 const db = mysql.createConnection({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD, // Change to your MySQL password
+  password: process.env.MYSQL_PASSWORD, 
   database: process.env.MYSQL_DATABASE,
   port: process.env.MYSQL_PORT,
 });
@@ -50,6 +49,5 @@ app.post("/products", (req, res) => {
   });
 });
 
-// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
